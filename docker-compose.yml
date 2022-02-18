@@ -1,5 +1,6 @@
 version: '2.1'
 
+# Services
 services:
   todo:
     build: kata-1
@@ -23,6 +24,7 @@ services:
       retries: 10
     volumes:
       - todo-data:/var/lib/mysql
-
+      
+# Volumes
 volumes:
   todo-data:
