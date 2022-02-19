@@ -6,11 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import me.arthur.kata1.api.ApiResult;
+import me.arthur.kata1.api.ApiUtils;
 import me.arthur.kata1.persistence.TodoEntity;
 import me.arthur.kata1.persistence.TodoRepository;
 
+@ResponseBody
 @RestController
 public class TodoService {
 
@@ -21,18 +25,18 @@ public class TodoService {
   TodoMapper mapper;
 
   @GetMapping(value = "/todo", produces = "application/json")
-  List<Todo> getTodoList() {
+  ApiResult<List<Todo>> getTodoList() {
     List<TodoEntity> entityList = todoRepository.findAll();
     List<Todo> list = mapper.entityListToApiList(entityList);
 
-    return list;
+    return ApiUtils.success(list);
   }
 
   @PostMapping(value = "/todo", consumes = "application/json", produces = "application/json")
-  Todo saveTodo(@RequestBody Todo todo) {
+  ApiResult<Todo> saveTodo(@RequestBody Todo todo) {
     TodoEntity todoEntity = mapper.apiToEntity(todo);
     TodoEntity newEntity = todoRepository.save(todoEntity);
 
-    return mapper.entityToApi(newEntity);
+    return ApiUtils.success(mapper.entityToApi(newEntity));
   }
 }

@@ -76,3 +76,15 @@ Entity 클래스에 @NoArgsConstructor 추가
     <!-- other annotation processors -->
 </annotationProcessorPaths>
 ```
+
+### Resolved [org.springframework.http.converter.HttpMessageNotWritableException: No converter for [class me.arthur.kata1.api.ApiResult] with preset Content-Type 'null']
+
+- jackson-dataformat-xml 의존성 추가
+
+```xml
+<dependency>
+  <groupId>com.fasterxml.jackson.dataformat</groupId>
+  <artifactId>jackson-dataformat-xml</artifactId>
+  <version>2.12.3</version>
+</dependency>
+```
