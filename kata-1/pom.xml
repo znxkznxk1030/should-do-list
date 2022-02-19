@@ -18,6 +18,7 @@
     <java.version>11</java.version>
     <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
     <org.projectlombok.version>1.18.22</org.projectlombok.version>
+    <version.mapstruct-lombok>0.2.0</version.mapstruct-lombok>
   </properties>
   <dependencies>
     <dependency>
@@ -52,6 +53,11 @@
       <version>${org.mapstruct.version}</version>
     </dependency>
     <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok-mapstruct-binding</artifactId>
+      <version>${version.mapstruct-lombok}</version>
+    </dependency>
+    <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>
       <version>2.1.210</version>
@@ -71,24 +77,24 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
         <configuration>
-          <source>1.8</source>          <!-- depending on your project -->
-          <target>1.8</target>          <!-- depending on your project -->
+          <source>11</source>          <!-- depending on your project -->
+          <target>11</target>          <!-- depending on your project -->
           <annotationProcessorPaths>
-            <path>
-              <groupId>org.mapstruct</groupId>
-              <artifactId>mapstruct-processor</artifactId>
-              <version>${org.mapstruct.version}</version>
-            </path>
             <path>
               <groupId>org.projectlombok</groupId>
               <artifactId>lombok</artifactId>
               <version>${org.projectlombok.version}</version>
             </path>
+            <path>
+              <groupId>org.mapstruct</groupId>
+              <artifactId>mapstruct-processor</artifactId>
+              <version>${org.mapstruct.version}</version>
+            </path>
             <!-- This is needed when using Lombok 1.8.16 and above -->
             <path>
               <groupId>org.projectlombok</groupId>
               <artifactId>lombok-mapstruct-binding</artifactId>
-              <version>0.1.0</version>
+              <version>${version.mapstruct-lombok}</version>
             </path>
             <!-- other annotation processors -->
           </annotationProcessorPaths>

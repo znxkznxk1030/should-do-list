@@ -8,12 +8,14 @@ import javax.persistence.Table;
 import javax.persistence.Version;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "todo")
+@NoArgsConstructor
 @Getter
 @Setter
+@Table(name = "todo")
 public class TodoEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

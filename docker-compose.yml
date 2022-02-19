@@ -2,11 +2,11 @@ version: '2.1'
 
 # Services
 services:
-  todo:
-    build: kata-1
-    mem_limit: 350m
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
+  # todo:
+  #   build: kata-1
+  #   mem_limit: 350m
+  #   environment:
+  #     - SPRING_PROFILES_ACTIVE=docker
   mysql:
     image: mysql:5.7
     mem_limit: 350m
