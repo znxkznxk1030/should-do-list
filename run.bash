@@ -1,8 +1,11 @@
 docker-compose down
 
-cd kata-1/
+cd auth-service/
 mvn clean package
+cd ..
 
+cd todo-service/
+mvn clean package
 cd ..
 
 docker-compose build

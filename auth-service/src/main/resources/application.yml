@@ -1,0 +1,9 @@
+server.port: 8080
+
+logging:
+  level:
+    root: INFO
+    me.arthur: DEBUG
+
+---
+spring.config.activate.on-profile: docker

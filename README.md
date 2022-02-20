@@ -1,11 +1,15 @@
 # spring-kata-1
-spring kata 1
 
+## Run
+
+```bash
+./run.bash
+```
 
 ## Build
 
 ```bash
-mvn package:repackage
+mvn clean package
 ```
 
 ## Volume 설정
@@ -77,7 +81,7 @@ Entity 클래스에 @NoArgsConstructor 추가
 </annotationProcessorPaths>
 ```
 
-### Resolved [org.springframework.http.converter.HttpMessageNotWritableException: No converter for [class me.arthur.kata1.api.ApiResult] with preset Content-Type 'null']
+### Resolved [org.springframework.http.converter.HttpMessageNotWritableException: No converter for [class me.arthur.todo.api.ApiResult] with preset Content-Type 'null']
 
 - jackson-dataformat-xml 의존성 추가
 
@@ -87,4 +91,16 @@ Entity 클래스에 @NoArgsConstructor 추가
   <artifactId>jackson-dataformat-xml</artifactId>
   <version>2.12.3</version>
 </dependency>
+```
+
+### How to Stop All Docker Containers
+
+```bash
+docker kill $(docker ps -q)
+```
+
+### How to Remove All Docker Containers
+
+```bash
+docker rm $(docker ps -a -q)
 ```
