@@ -2,12 +2,14 @@ version: '2.1'
 
 # Services
 services:
-  # todo:
-  #   build: kata-1
-  #   mem_limit: 350m
-  #   environment:
-  #     - SPRING_PROFILES_ACTIVE=docker
-  mysql:
+  todo-service:
+    build: kata-1
+    mem_limit: 350m
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+  mysql-db:
     image: mysql:5.7
     mem_limit: 350m
     ports:
@@ -23,8 +25,8 @@ services:
       timeout: 5s
       retries: 10
     volumes:
-      - todo-data:/var/lib/mysql
+      - todo-data-1:/var/lib/mysql
       
 # Volumes
 volumes:
-  todo-data:
+  todo-data-1:
