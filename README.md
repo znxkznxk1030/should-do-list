@@ -46,6 +46,8 @@ spring.profiles.include: oauth
 
 ## [spring-boot-starter-oauth2-client] google redirection url 설정
 
+- http://localhost:8080/login/oauth2/code/google
+
 ```yml
 # application-oauth.yml
 
@@ -61,6 +63,16 @@ spring:
 ```
 
 ![google redirection url](./figures/google-redirection-url.png)
+
+## 카카오 OAuth 이용하기
+
+[[Spring] 스프링으로 OAuth2 로그인 구현하기3 - 카카오](https://loosie.tistory.com/302#h2)
+
+## OAuth 로그인 디폴트 화면
+
+![oauth-login](./figures/oauth-login.png)
+
+<!-- ![kakao-login](./figures/kakao-oauth.png) -->
 
 ## Error List
 
