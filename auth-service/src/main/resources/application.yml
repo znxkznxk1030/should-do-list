@@ -1,3 +1,6 @@
+# import application-oauth.yml
+spring.profiles.include: oauth
+
 server.port: 8080
 
 logging:

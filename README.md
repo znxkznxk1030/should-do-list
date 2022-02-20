@@ -35,6 +35,33 @@ docker volume ls
 docker volume inspect spring-kata-1_todo-data
 ```
 
+## application.yml 파일 분리하기
+
+[[SOF] Spring Boot: how to use multiple yml files ](https://stackoverflow.com/questions/23134869/spring-boot-how-to-use-multiple-yml-files)
+
+```yml
+# import application-oauth.yml
+spring.profiles.include: oauth
+```
+
+## [spring-boot-starter-oauth2-client] google redirection url 설정
+
+```yml
+# application-oauth.yml
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google: 
+            client-id: << GOOGLE CLIENT ID >>
+            client-secret: << GOOGLE CLIENT SECERT >>
+            scope: profile,email
+```
+
+![google redirection url](./figures/google-redirection-url.png)
+
 ## Error List
 
 ### No default constructor for entity
