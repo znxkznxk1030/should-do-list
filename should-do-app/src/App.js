@@ -6,6 +6,8 @@ function App() {
   const [message, setMessage] = useState([]);
 
   useEffect(() => {
+    fetch("/oauth2/authorization/google");
+
     fetch("/hello")
       .then((response) => {
         return response.json();
@@ -19,16 +21,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+        <a href="http://localhost:8080/oauth2/authorization/google">
+          Connect Your Account
         </a>
         <ul>
           {" "}

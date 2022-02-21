@@ -1,8 +1,8 @@
 docker-compose down
 
-cd should-do-app/
-npm run build
-cd ..
+# cd should-do-app/
+# npm run build
+# cd ..
 
 cd client-service/
 mvn clean package
