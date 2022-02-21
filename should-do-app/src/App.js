@@ -22,7 +22,10 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <a href="http://localhost:8080/oauth2/authorization/google">
-          Connect Your Account
+          Google
+        </a>
+        <a href="http://localhost:8080/oauth2/authorization/kakao">
+          Kakao
         </a>
         <ul>
           {" "}
