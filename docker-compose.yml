@@ -9,13 +9,37 @@ services:
       - "8081:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
-  auth-service:
-    build: auth-service
+  client-service:
+    build: client-service
     mem_limit: 350m
     ports:
       - "8080:8080"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
+  should-do-app:
+    build: should-do-app
+    mem_limit: 350m
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=development
+  user-db:
+    image: mysql:5.7
+    mem_limit: 350m
+    ports:
+      - "3308:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpwd
+      - MYSQL_DATABASE=user-db
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pwd
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-uuser", "-ppwd", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - user-data:/var/lib/mysql    
   todo-db:
     image: mysql:5.7
     mem_limit: 350m
@@ -37,3 +61,4 @@ services:
 # Volumes
 volumes:
   todo-data-1:
+  user-data:

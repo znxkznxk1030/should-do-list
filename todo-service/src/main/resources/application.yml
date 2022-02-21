@@ -9,7 +9,7 @@ spring.jpa.hibernate.ddl-auto: update
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3307/todo
+    url: jdbc:mysql://localhost:3307/todo-db
     username: user
     password: pwd
 

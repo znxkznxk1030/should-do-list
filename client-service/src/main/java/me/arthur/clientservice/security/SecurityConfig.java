@@ -1,4 +1,4 @@
-package me.arthur.authservice.security;
+package me.arthur.clientservice.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
