@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import me.arthur.clientservice.model.KakaoUser;
+
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class HelloController {
@@ -27,6 +29,7 @@ public class HelloController {
   String KAKAO_HOST = "https://kapi.kakao.com";
   String KAKAO_API_PROFILE = "/v1/api/talk/profile";
   String KAKAO_API_ME = "/v2/user/me";
+  String KAKAO_API_FRIENDS = "/v1/api/talk/friends";
 
   @Autowired
   private RestTemplate restTemplate;
@@ -37,8 +40,8 @@ public class HelloController {
     return Arrays.asList("안녕하세요", "Hello");
   }
 
-  @GetMapping(value = "/user")
-  public String User(Principal principal,
+  @GetMapping(value = "/user/profile")
+  public String Profile(Principal principal,
       @RegisteredOAuth2AuthorizedClient("kakao") OAuth2AuthorizedClient authorizedClient) {
     String nickname = "";
 
@@ -63,9 +66,25 @@ public class HelloController {
     headers.set("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
     HttpEntity<String> request = new HttpEntity<>(headers);
 
-    ResponseEntity<String> responseEntity = restTemplate.exchange(KAKAO_HOST + KAKAO_API_ME, HttpMethod.GET,
+    ResponseEntity<KakaoUser> responseEntity = restTemplate.exchange(KAKAO_HOST + KAKAO_API_ME, HttpMethod.GET,
+        request, KakaoUser.class);
+    
+
+    return nickname;
+  }
+
+  @GetMapping(value = "/user/friends")
+  public String Friends(Principal principal,
+      @RegisteredOAuth2AuthorizedClient("kakao") OAuth2AuthorizedClient authorizedClient) {
+    String nickname = "";
+
+    HttpHeaders headers = new HttpHeaders();
+    headers.set("Authorization", "Bearer " + authorizedClient.getAccessToken().getTokenValue());
+    HttpEntity<String> request = new HttpEntity<>(headers);
+
+    ResponseEntity<String> responseEntity = restTemplate.exchange(KAKAO_HOST + KAKAO_API_FRIENDS, HttpMethod.GET,
         request, String.class);
 
-    return responseEntity.getBody();
+    return nickname;
   }
 }

@@ -6,7 +6,7 @@ function App() {
   const [message, setMessage] = useState([]);
 
   function onHello() {
-    fetch("/user/me")
+    fetch("/user/friends")
       .then((response) => {
         return response.json();
       })
