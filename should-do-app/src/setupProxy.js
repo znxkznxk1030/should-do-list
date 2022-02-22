@@ -8,6 +8,7 @@ module.exports = function (app) {
       target: "http://localhost:8080",
     })
   );
+
   app.use(
     "/login",
     createProxyMiddleware({
