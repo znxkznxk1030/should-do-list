@@ -6,7 +6,7 @@ function App() {
   const [message, setMessage] = useState([]);
 
   function onHello() {
-    fetch("/hello")
+    fetch("/user/me")
       .then((response) => {
         return response.json();
       })
@@ -14,13 +14,17 @@ function App() {
         setMessage(data);
       });
   }
-  
+
+  function onSocialLogin(provider) {
+    fetch(`/oauth2/authorization/${provider}`);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <a href="http://localhost:8080/oauth2/authorization/google">Google</a>
-        <a href="http://localhost:8080/oauth2/authorization/kakao">Kakao</a>
+        {/* <a href="http://localhost:8080/oauth2/authorization/google">Google</a> */}
+        <a href="http://localhost:8080/oauth2/authorization/kakao">KaKao</a>
         <button onClick={onHello}>Hello</button>
         <ul>
           {" "}
