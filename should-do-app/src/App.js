@@ -6,8 +6,6 @@ function App() {
   const [message, setMessage] = useState([]);
 
   useEffect(() => {
-    fetch("/oauth2/authorization/google");
-
     fetch("/hello")
       .then((response) => {
         return response.json();
@@ -21,16 +19,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <a href="http://localhost:8080/oauth2/authorization/google">
-          Google
-        </a>
-        <a href="http://localhost:8080/oauth2/authorization/kakao">
-          Kakao
-        </a>
+        <a href="/oauth2/authorization/google">Google</a>
+        <a href="/oauth2/authorization/kakao">Kakao</a>
         <ul>
           {" "}
           {message.map((text, index) => (
-            <li key={`${index}-${text}`}>{text}</li>
+            <li key={`${index}${text}`}>{text}</li>
           ))}{" "}
         </ul>
       </header>
