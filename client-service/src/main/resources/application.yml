@@ -17,9 +17,19 @@ logging:
 #     username: user
 #     password: pwd
 
+app:
+  todo-service:
+    host: localhost
+    port: 8090
+
 ---
 spring.config.activate.on-profile: docker
 
 server.port: 8080
 # spring.datasource:
 #   url: jdbc:mysql://user-db/user-db
+
+app:
+  todo-service:
+    host: todo-service
+    port: 8080

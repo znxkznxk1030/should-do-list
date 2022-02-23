@@ -9,7 +9,7 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name = "todo")
-public class TodoEntity {
+public class ShouldDoEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -17,19 +17,29 @@ public class TodoEntity {
   @Version
   private int version;
 
+  private String userId;
   private String title;
   private String content;
 
 
-  public TodoEntity() {
+  public ShouldDoEntity() {
   }
 
 
-  public TodoEntity(String title, String content) {
+  public ShouldDoEntity(String userId, String title, String content) {
+    this.userId = userId;
     this.title = title;
     this.content = content;
   }
 
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
 
   public Long getId() {
     return this.id;
