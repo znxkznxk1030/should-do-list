@@ -8,7 +8,7 @@ module.exports = function (app) {
     })
   );
   app.use(
-    "/hello",
+    "/api",
     createProxyMiddleware({
       target: "http://localhost:8080",
     })

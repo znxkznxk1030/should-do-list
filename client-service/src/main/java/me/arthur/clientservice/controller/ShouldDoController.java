@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import me.arthur.clientservice.api.ApiResult;
+import me.arthur.clientservice.api.ApiUtils;
+import me.arthur.clientservice.model.KakaoUser;
 import me.arthur.clientservice.model.ShouldDo;
 import me.arthur.clientservice.service.KakaoApiService;
 import me.arthur.clientservice.service.ShouldDoApiService;
@@ -22,10 +25,13 @@ public class ShouldDoController {
   @Autowired
   ShouldDoApiService souldDoApiService;
 
-  @GetMapping(value="/mine")
-  public List<ShouldDo> getMyShouldDoList(
+  @GetMapping("")
+  public ApiResult<List<ShouldDo>> getMyShouldDoList(
       @RegisteredOAuth2AuthorizedClient("kakao") OAuth2AuthorizedClient authorizedClient) {
 
-    return null;
+      KakaoUser me = kakaoApiService.getMyInfo(authorizedClient);
+      Integer userId = me.getId().intValue();
+      List<ShouldDo> list = souldDoApiService.getMyShouldDoList(userId);
+    return ApiUtils.success(list);
   }
 }

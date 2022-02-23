@@ -1,9 +1,9 @@
 package me.arthur.clientservice.api;
 
 public class ApiResult<T> {
-  private final boolean success;
-  private final T response;
-  private final ApiError error;
+  private boolean success;
+  private T response;
+  private ApiError error;
 
   public ApiResult(boolean success, T response, ApiError error) {
     this.success = success;
@@ -11,6 +11,15 @@ public class ApiResult<T> {
     this.error = error;
   }
 
+  public void setSuccess(boolean success) {
+    this.success = success;
+  }
+  public void setResponse(T response) {
+    this.response = response;
+  }
+  public void setError(ApiError error) {
+    this.error = error;
+  }
 
   public boolean isSuccess() {
     return this.success;
@@ -19,7 +28,6 @@ public class ApiResult<T> {
   public boolean getSuccess() {
     return this.success;
   }
-
 
   public T getResponse() {
     return this.response;

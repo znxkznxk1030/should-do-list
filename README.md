@@ -143,3 +143,15 @@ docker kill $(docker ps -q)
 ```bash
 docker rm $(docker ps -a -q)
 ```
+
+### docker-compose | Mysql 한글 깨짐현상 해결
+
+```yml
+command: 
+  - --character-set-server=utf8 
+  - --collation-server=utf8_general_ci
+```
+
+### cannot deserialize from object value
+
+- VO에 빈 생성자 추가

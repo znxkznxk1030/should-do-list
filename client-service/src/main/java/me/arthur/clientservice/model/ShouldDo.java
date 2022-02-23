@@ -1,14 +1,25 @@
 package me.arthur.clientservice.model;
 
+import java.time.LocalDateTime;
+
 public class ShouldDo {
   private String userId;
   private String title;
   private String content;
+  private String createdDate;
+  private String modifiedDate;
 
-  public ShouldDo(String userId, String title, String content) {
+
+  public ShouldDo() {
+  }
+
+
+  public ShouldDo(String userId, String title, String content, String createdDate, String modifiedDate) {
     this.userId = userId;
     this.title = title;
     this.content = content;
+    this.createdDate = createdDate;
+    this.modifiedDate = modifiedDate;
   }
 
   public String getUserId() {
@@ -34,4 +45,21 @@ public class ShouldDo {
   public void setContent(String content) {
     this.content = content;
   }
+
+  public String getCreatedDate() {
+    return this.createdDate;
+  }
+
+  public void setCreatedDate(String createdDate) {
+    this.createdDate = createdDate;
+  }
+
+  public String getModifiedDate() {
+    return this.modifiedDate;
+  }
+
+  public void setModifiedDate(String modifiedDate) {
+    this.modifiedDate = modifiedDate;
+  }
+
 }

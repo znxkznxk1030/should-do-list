@@ -6,12 +6,12 @@ function App() {
   const [message, setMessage] = useState([]);
 
   function onHello() {
-    fetch("/user/friends")
+    fetch("/api/v1/should-do")
       .then((response) => {
         return response.json();
       })
       .then(function (data) {
-        setMessage(data);
+        // setMessage(data);
       });
   }
 
