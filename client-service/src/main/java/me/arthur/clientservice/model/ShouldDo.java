@@ -1,7 +1,5 @@
 package me.arthur.clientservice.model;
 
-import java.time.LocalDateTime;
-
 public class ShouldDo {
   private String userId;
   private String title;

@@ -14,9 +14,9 @@ import me.arthur.clientservice.model.KakaoUser;
 @Service
 public class KakaoApiService {
   private final String KAKAO_HOST = "https://kapi.kakao.com";
-  private final String KAKAO_API_PROFILE = "/v1/api/talk/profile";
+  // private final String KAKAO_API_PROFILE = "/v1/api/talk/profile";
   private final String KAKAO_API_ME = "/v2/user/me";
-  private final String KAKAO_API_FRIENDS = "/v1/api/talk/friends";
+  // private final String KAKAO_API_FRIENDS = "/v1/api/talk/friends";
   
   @Autowired
   private RestTemplate restTemplate;

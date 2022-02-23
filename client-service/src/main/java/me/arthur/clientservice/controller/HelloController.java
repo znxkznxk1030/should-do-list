@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import me.arthur.clientservice.model.KakaoUser;
+// import me.arthur.clientservice.model.KakaoUser;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -43,7 +43,6 @@ public class HelloController {
   @GetMapping(value = "/user/profile")
   public String Profile(Principal principal,
       @RegisteredOAuth2AuthorizedClient("kakao") OAuth2AuthorizedClient authorizedClient) {
-    String nickname = "";
 
     HttpHeaders headers = new HttpHeaders(); 
     headers.set("Authorization", "Bearer " + authorizedClient.getAccessToken().getTokenValue()); 
@@ -64,10 +63,10 @@ public class HelloController {
     HttpHeaders headers = new HttpHeaders();
     headers.set("Authorization", "Bearer " + authorizedClient.getAccessToken().getTokenValue());
     headers.set("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
-    HttpEntity<String> request = new HttpEntity<>(headers);
+    // HttpEntity<String> request = new HttpEntity<>(headers);
 
-    ResponseEntity<KakaoUser> responseEntity = restTemplate.exchange(KAKAO_HOST + KAKAO_API_ME, HttpMethod.GET,
-        request, KakaoUser.class);
+    // ResponseEntity<KakaoUser> responseEntity = restTemplate.exchange(KAKAO_HOST + KAKAO_API_ME, HttpMethod.GET,
+        // request, KakaoUser.class);
     
 
     return nickname;
@@ -80,10 +79,10 @@ public class HelloController {
 
     HttpHeaders headers = new HttpHeaders();
     headers.set("Authorization", "Bearer " + authorizedClient.getAccessToken().getTokenValue());
-    HttpEntity<String> request = new HttpEntity<>(headers);
+    // HttpEntity<String> request = new HttpEntity<>(headers);
 
-    ResponseEntity<String> responseEntity = restTemplate.exchange(KAKAO_HOST + KAKAO_API_FRIENDS, HttpMethod.GET,
-        request, String.class);
+    // ResponseEntity<String> responseEntity = restTemplate.exchange(KAKAO_HOST + KAKAO_API_FRIENDS, HttpMethod.GET,
+    //     request, String.class);
 
     return nickname;
   }

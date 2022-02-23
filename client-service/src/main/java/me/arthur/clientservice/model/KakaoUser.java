@@ -1,7 +1,5 @@
 package me.arthur.clientservice.model;
 
-import java.security.Timestamp;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class KakaoUser {

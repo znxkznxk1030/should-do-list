@@ -1,8 +1,5 @@
 package me.arthur.clientservice.property;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
-
 // @Component
 // @ConfigurationProperties("should-do")
 public class ShouldDoServiceProperty {
