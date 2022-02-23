@@ -9,7 +9,7 @@ import javax.persistence.Version;
 
 @Entity
 @Table(name = "todo")
-public class ShouldDoEntity {
+public class ShouldDoEntity extends BaseTimeEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -21,10 +21,8 @@ public class ShouldDoEntity {
   private String title;
   private String content;
 
-
   public ShouldDoEntity() {
   }
-
 
   public ShouldDoEntity(String userId, String title, String content) {
     this.userId = userId;
