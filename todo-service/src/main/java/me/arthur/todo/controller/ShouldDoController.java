@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,9 +26,9 @@ public class ShouldDoController {
   @Autowired
   ShouldDoMapper mapper;
 
-  @GetMapping(value = "/should-do", produces = "application/json")
-  ApiResult<List<ShouldDo>> getShouldDoList() {
-    List<ShouldDoEntity> entityList = shouldDoRepository.findAll();
+  @GetMapping(value = "/should-do/{userId}", produces = "application/json")
+  ApiResult<List<ShouldDo>> getShouldDoList(@PathVariable String userId) {
+    List<ShouldDoEntity> entityList = shouldDoRepository.findAllByUserId(userId);
     List<ShouldDo> list = mapper.entityListToApiList(entityList);
 
     return ApiUtils.success(list);
