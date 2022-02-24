@@ -6,6 +6,7 @@ public class ShouldDo {
   private String userId;
   private String title;
   private String content;
+  private Integer state;
   private LocalDateTime createdDate;
   private LocalDateTime modifiedDate;
 
@@ -15,6 +16,7 @@ public class ShouldDo {
     this.content = content;
     this.createdDate = createdDate;
     this.modifiedDate = modifiedDate;
+    this.state = 0; // todo
   }
 
 

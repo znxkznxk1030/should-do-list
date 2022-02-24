@@ -1,6 +1,9 @@
 import "./App.css";
+import ShouldDoList from "./components/ShouldDoList";
+import kakaoLoginImg from "./resources/kakao_login_medium_narrow.png";
 
 function App() {
+
   function onHello() {
     fetch("/api/v1/should-do")
       .then((response) => {
@@ -8,6 +11,7 @@ function App() {
       })
       .then(function (data) {
         // setMessage(data);
+        console.log(data);
       });
   }
 
@@ -24,14 +28,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <a href="http://localhost:8080/oauth2/authorization/kakao?redirect_uri=http://localhost:3000/home">
-          KaKao
-        </a>
-        <button onClick={onSocialLogin}>me</button>
-        <button onClick={onHello}>Hello</button>
+        <ShouldDoList></ShouldDoList>
       </header>
-      {/* <Route exact path="/" component={SearchParams} /> */}
-      {/* <Route path="/details/:id" component={Details} /> */}
     </div>
   );
 }

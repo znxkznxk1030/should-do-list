@@ -20,14 +20,16 @@ public class ShouldDoEntity extends BaseTimeEntity {
   private String userId;
   private String title;
   private String content;
+  private Integer state;
 
   public ShouldDoEntity() {
   }
 
-  public ShouldDoEntity(String userId, String title, String content) {
+  public ShouldDoEntity(String userId, String title, String content, Integer state) {
     this.userId = userId;
     this.title = title;
     this.content = content;
+    this.state = state;
   }
 
 
@@ -70,5 +72,14 @@ public class ShouldDoEntity extends BaseTimeEntity {
   public void setContent(String content) {
     this.content = content;
   }
+
+  public Integer getState() {
+    return this.state;
+  }
+
+  public void setState(Integer state) {
+    this.state = state;
+  }
+
   
 }
