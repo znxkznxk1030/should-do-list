@@ -7,6 +7,7 @@ module.exports = function (app) {
       target: "http://localhost:8080",
     })
   );
+
   app.use(
     "/api",
     createProxyMiddleware({
@@ -15,16 +16,16 @@ module.exports = function (app) {
   );
 
   app.use(
-    "/login",
+    "/login/oauth2",
     createProxyMiddleware({
       target: "http://localhost:8080",
     })
   );
 
-  app.use(
-    "/oauth2",
-    createProxyMiddleware({
-      target: "http://localhost:8080",
-    })
-  );
+  // app.use(
+  //   "/oauth2",
+  //   createProxyMiddleware({
+  //     target: "http://localhost:8080",
+  //   })
+  // );
 };
