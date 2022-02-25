@@ -6,6 +6,7 @@ public class ShouldDo {
   private String content;
   private String createdDate;
   private String modifiedDate;
+  private Integer state;
 
 
   public ShouldDo() {
@@ -59,5 +60,14 @@ public class ShouldDo {
   public void setModifiedDate(String modifiedDate) {
     this.modifiedDate = modifiedDate;
   }
+
+  public Integer getState() {
+    return this.state;
+  }
+
+  public void setState(Integer state) {
+    this.state = state;
+  }
+
 
 }

@@ -27,7 +27,7 @@ public class ShouldDoController {
   @Autowired
   ShouldDoApiService souldDoApiService;
 
-  @GetMapping("")
+  @GetMapping(value= "/", produces = "application/json")
   public ApiResult<List<ShouldDo>> getMyShouldDoList(
       @RegisteredOAuth2AuthorizedClient("kakao") OAuth2AuthorizedClient authorizedClient) {
 

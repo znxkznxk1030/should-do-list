@@ -1,25 +1,31 @@
 import React, { useState, useEffect } from "react";
+
 import kakaoLoginImg from "../resources/kakao_login_medium_narrow.png";
 import "./ShouldDoList.css";
 
-const ShouldDoList = () => {
-  const [shouldDoList, setShouldDoList] = useState(null);
+const FriendsList = () => {
+  const [friendsList, setFriendsList] = useState(null);
   const [profile, setProfile] = useState([]);
 
   useEffect(() => {
-    fetchShouldDoList();
+    fetchFriendsList();
     fetchSocialLogin();
   }, []);
 
-  function fetchShouldDoList() {
-    fetch("/api/v1/should-do")
+  function fetchFriendsList() {
+    fetch("/user/friends", {
+      headers: {
+        "Content-Type": "application/json",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    })
       .then((response) => {
+        console.log(response);
         return response.json();
       })
       .then(function (data) {
-        // setMessage(data);
         console.log(data);
-        setShouldDoList(data.response);
+        setFriendsList(data.elements);
       });
   }
 
@@ -29,12 +35,12 @@ const ShouldDoList = () => {
         return response.json();
       })
       .then(function (data) {
-        console.log(data);
+        // console.log(data);
         setProfile(data);
       });
   }
 
-  if (!shouldDoList) {
+  if (!friendsList) {
     return (
       <div>
         <a href="http://localhost:8080/oauth2/authorization/kakao?redirect_uri=http://localhost:3000/home">
@@ -45,16 +51,19 @@ const ShouldDoList = () => {
   }
 
   return (
-    <div className="should-do-list">
+    <div className="friends-list">
       <div className="profile-image">
         <img src={profile.thumbnailURL} alt="profile_image" />
-        <h1>'s Should-Do List</h1>
+        <h1>'s Kakao Friends</h1>
       </div>
-
-      {shouldDoList.map((item, index) => (
+      {friendsList.map((item, index) => (
         <div className="item__data" key={index}>
           {/* <div>{item.title}</div> */}
-          <div className="item__names">{item.content}</div>
+          <div className="item__thumbnail">
+            <img src={item.profile_thumbnail_image} alt="profile_image" />
+          </div>
+          <div className="item__names">{item.profile_nickname}</div>
+          <div className="item__names"></div>
           <div className="item__bar"></div>
         </div>
       ))}
@@ -62,4 +71,4 @@ const ShouldDoList = () => {
   );
 };
 
-export default ShouldDoList;
+export default FriendsList;

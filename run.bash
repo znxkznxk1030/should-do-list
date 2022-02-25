@@ -4,9 +4,9 @@ docker-compose down
 # npm run build
 # cd ..
 
-cd client-service/
-mvn clean package
-cd ..
+# cd client-service/
+# mvn clean package
+# cd ..
 
 
 cd todo-service/

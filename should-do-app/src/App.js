@@ -1,34 +1,25 @@
 import "./App.css";
 import ShouldDoList from "./components/ShouldDoList";
-import kakaoLoginImg from "./resources/kakao_login_medium_narrow.png";
+
+import { Route, Routes, Link } from "react-router-dom";
+import FriendsList from "./components/FriendsList";
 
 function App() {
-
-  function onHello() {
-    fetch("/api/v1/should-do")
-      .then((response) => {
-        return response.json();
-      })
-      .then(function (data) {
-        // setMessage(data);
-        console.log(data);
-      });
-  }
-
-  function onSocialLogin() {
-    fetch("/user/profile")
-      .then((response) => {
-        return response.json();
-      })
-      .then(function (data) {
-        // setMessage(data);
-      });
-  }
-
   return (
     <div className="App">
       <header className="App-header">
-        <ShouldDoList></ShouldDoList>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/friends">Friends</Link>
+          </li>
+        </ul>
+        <Routes>
+          <Route path="/" element={<ShouldDoList />} />
+          <Route path="/friends" element={<FriendsList />} />
+        </Routes>
       </header>
     </div>
   );

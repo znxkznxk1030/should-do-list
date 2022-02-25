@@ -60,4 +60,13 @@ public class ShouldDo {
     this.modifiedDate = modifiedDate;
   }
 
+  public Integer getState() {
+    return this.state;
+  }
+
+  public void setState(Integer state) {
+    this.state = state;
+  }
+
+
 }

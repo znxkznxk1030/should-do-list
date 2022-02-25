@@ -3,6 +3,10 @@ package me.arthur.clientservice.controller;
 import java.security.Principal;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import com.vdurmont.emoji.EmojiParser;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,7 +44,7 @@ public class HelloController {
     return Arrays.asList("안녕하세요", "Hello");
   }
 
-  @GetMapping(value = "/user/profile")
+  @GetMapping(value = "/user/profile", produces = "application/json")
   public String Profile(Principal principal,
       @RegisteredOAuth2AuthorizedClient("kakao") OAuth2AuthorizedClient authorizedClient) {
 
@@ -55,7 +59,7 @@ public class HelloController {
     return responseEntity.getBody();
   }
 
-  @GetMapping(value = "/user/me")
+  @GetMapping(value = "/user/me", produces = "application/json")
   public String Me(Principal principal,
       @RegisteredOAuth2AuthorizedClient("kakao") OAuth2AuthorizedClient authorizedClient) {
     String nickname = "";
@@ -72,18 +76,26 @@ public class HelloController {
     return nickname;
   }
 
-  @GetMapping(value = "/user/friends")
+  @GetMapping(value = "/user/friends", produces = "application/json")
   public String Friends(Principal principal,
       @RegisteredOAuth2AuthorizedClient("kakao") OAuth2AuthorizedClient authorizedClient) {
     String nickname = "";
 
     HttpHeaders headers = new HttpHeaders();
     headers.set("Authorization", "Bearer " + authorizedClient.getAccessToken().getTokenValue());
-    // HttpEntity<String> request = new HttpEntity<>(headers);
+    headers.set("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+    HttpEntity<String> request = new HttpEntity<>(headers);
 
-    // ResponseEntity<String> responseEntity = restTemplate.exchange(KAKAO_HOST + KAKAO_API_FRIENDS, HttpMethod.GET,
-    //     request, String.class);
+    ResponseEntity<String> responseEntity = restTemplate.exchange(KAKAO_HOST + KAKAO_API_FRIENDS, HttpMethod.GET,
+        request, String.class);
+    
+    System.out.println(responseEntity.getBody());
 
-    return nickname;
+    String response = EmojiParser.removeAllEmojis(responseEntity.getBody());
+
+    System.out.println(response);
+    return responseEntity.getBody();
   }
+
+  
 }
