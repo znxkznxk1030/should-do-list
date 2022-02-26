@@ -51,7 +51,7 @@ const FriendsList = () => {
   }
 
   return (
-    <div className="should-do-list">
+    <div className="should-do-wrapper">
       <div className="should-do-header">
         <img src={profile.thumbnailURL} alt="profile_image" />
         <h1>'s Kakao Friends</h1>

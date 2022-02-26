@@ -45,19 +45,21 @@ const ShouldDoList = () => {
   }
 
   return (
-    <div className="should-do-list">
+    <div className="should-do-wrapper">
       <div className="should-do-header">
         <img src={profile.thumbnailURL} alt="profile_image" />
         <h1>'s Should-Do List</h1>
       </div>
 
-      {shouldDoList.map((item, index) => (
-        <div className="item__data" key={index}>
-          {/* <div>{item.title}</div> */}
-          <div className="item__names">{item.content}</div>
-          <div className="item__bar"></div>
-        </div>
-      ))}
+      <div className="should-do-list">
+        {shouldDoList.map((item, index) => (
+          <div className="item__data" key={index}>
+            {/* <div>{item.title}</div> */}
+            <div className="item__names">{item.content}</div>
+            <div className="item__bar"></div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
