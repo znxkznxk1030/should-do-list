@@ -1,0 +1,19 @@
+.nav {
+  width: 80vw;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav > a {
+  width: 40px;
+  font-size: 20px;
+}
+
+.nav > a:hover {
+  color: aquamarine;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
