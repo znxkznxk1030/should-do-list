@@ -46,7 +46,7 @@ const ShouldDoList = () => {
 
   return (
     <div className="should-do-list">
-      <div className="profile-image">
+      <div className="should-do-header">
         <img src={profile.thumbnailURL} alt="profile_image" />
         <h1>'s Should-Do List</h1>
       </div>

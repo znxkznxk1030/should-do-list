@@ -7,20 +7,22 @@ import FriendsList from "./components/FriendsList";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/friends">Friends</Link>
-          </li>
-        </ul>
+      <div className="App-body">
+        <div>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/friends">Friends</Link>
+            </li>
+          </ul>
+        </div>
         <Routes>
           <Route path="/" element={<ShouldDoList />} />
           <Route path="/friends" element={<FriendsList />} />
         </Routes>
-      </header>
+      </div>
     </div>
   );
 }
