@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import kakaoLoginImg from "../resources/kakao_login_medium_narrow.png";
 import "./ShouldDoList.css";
 
+import { Link } from "react-router-dom";
+
 const FriendsList = () => {
   const [friendsList, setFriendsList] = useState(null);
   const [profile, setProfile] = useState([]);
@@ -57,15 +59,17 @@ const FriendsList = () => {
         <h1>'s Kakao Friends</h1>
       </div>
       {friendsList.map((item, index) => (
-        <div className="item__data" key={index}>
-          {/* <div>{item.title}</div> */}
-          <div className="item__thumbnail">
-            <img src={item.profile_thumbnail_image} alt="profile_image" />
+        <Link to="/">
+          <div className="item__data" key={index}>
+            {/* <div>{item.title}</div> */}
+            <div className="item__thumbnail">
+              <img src={item.profile_thumbnail_image} alt="profile_image" />
+            </div>
+            <div className="item__names">{item.profile_nickname}</div>
+            <div className="item__names"></div>
+            <div className="item__bar"></div>
           </div>
-          <div className="item__names">{item.profile_nickname}</div>
-          <div className="item__names"></div>
-          <div className="item__bar"></div>
-        </div>
+        </Link>
       ))}
     </div>
   );

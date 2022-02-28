@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import kakaoLoginImg from "../resources/kakao_login_medium_narrow.png";
 import "./ShouldDoList.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowsH, faCheck, faSquare } from "@fortawesome/free-solid-svg-icons";
+
 const ShouldDoList = () => {
   const [shouldDoList, setShouldDoList] = useState(null);
   const [profile, setProfile] = useState([]);
@@ -56,6 +59,9 @@ const ShouldDoList = () => {
           <div className="item__data" key={index}>
             {/* <div>{item.title}</div> */}
             <div className="item__names">{item.content}</div>
+            <div className="item__status">
+              <ShouldDoItemStatus state={item.state}/>
+            </div>
             <div className="item__bar"></div>
           </div>
         ))}
@@ -63,5 +69,14 @@ const ShouldDoList = () => {
     </div>
   );
 };
+
+function ShouldDoItemStatus(props) {
+  switch (props.state) {
+    case 0:
+      return <FontAwesomeIcon icon={faCheck} />;
+    default:
+      return <FontAwesomeIcon className="item__wait" icon={faSquare} />;
+  }
+}
 
 export default ShouldDoList;

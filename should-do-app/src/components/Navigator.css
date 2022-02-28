@@ -1,5 +1,5 @@
 .nav {
-  width: 80vw;
+  width: 430px;
   display: flex;
   justify-content: flex-end;
 }
@@ -9,7 +9,7 @@
   font-size: 20px;
 }
 
-.nav > a:hover {
+.nav > a:hover, .nav > a:active{
   color: aquamarine;
 }
 
