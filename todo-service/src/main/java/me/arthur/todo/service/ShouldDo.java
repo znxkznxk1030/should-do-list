@@ -3,29 +3,42 @@ package me.arthur.todo.service;
 import java.time.LocalDateTime;
 
 public class ShouldDo {
-  private String userId;
+  private String fromId;
+  private String toId;
   private String title;
   private String content;
   private Integer state;
   private LocalDateTime createdDate;
   private LocalDateTime modifiedDate;
 
-  public ShouldDo(String userId, String title, String content, LocalDateTime createdDate, LocalDateTime modifiedDate) {
-    this.userId = userId;
+  public ShouldDo() {
+  }
+
+  public ShouldDo(String fromId, String toId, String title, String content, Integer state, LocalDateTime createdDate,
+      LocalDateTime modifiedDate) {
+    this.fromId = fromId;
+    this.toId = toId;
     this.title = title;
     this.content = content;
+    this.state = state;
     this.createdDate = createdDate;
     this.modifiedDate = modifiedDate;
-    this.state = 0; // todo
   }
 
-
-  public String getUserId() {
-    return this.userId;
+  public String getFromId() {
+    return this.fromId;
   }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
+  public void setFromId(String fromId) {
+    this.fromId = fromId;
+  }
+
+  public String getToId() {
+    return this.toId;
+  }
+
+  public void setToId(String toId) {
+    this.toId = toId;
   }
 
   public String getTitle() {
@@ -67,6 +80,5 @@ public class ShouldDo {
   public void setState(Integer state) {
     this.state = state;
   }
-
 
 }

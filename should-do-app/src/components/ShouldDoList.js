@@ -27,7 +27,7 @@ const ShouldDoList = () => {
   }
 
   function fetchSocialLogin() {
-    fetch("/user/profile")
+    fetch("/api/v1/user/profile")
       .then((response) => {
         return response.json();
       })

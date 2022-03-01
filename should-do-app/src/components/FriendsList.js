@@ -15,7 +15,7 @@ const FriendsList = () => {
   }, []);
 
   function fetchFriendsList() {
-    fetch("/user/friends", {
+    fetch("/api/v1/user/friends", {
       headers: {
         "Content-Type": "application/json",
         // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -32,7 +32,7 @@ const FriendsList = () => {
   }
 
   function fetchSocialLogin() {
-    fetch("/user/profile")
+    fetch("/api/v1/user/profile")
       .then((response) => {
         return response.json();
       })

@@ -17,7 +17,8 @@ public class ShouldDoEntity extends BaseTimeEntity {
   @Version
   private int version;
 
-  private String userId;
+  private String fromId;
+  private String toId;
   private String title;
   private String content;
   private Integer state;
@@ -25,20 +26,29 @@ public class ShouldDoEntity extends BaseTimeEntity {
   public ShouldDoEntity() {
   }
 
-  public ShouldDoEntity(String userId, String title, String content, Integer state) {
-    this.userId = userId;
+  public ShouldDoEntity(String fromId, String toId, String title, String content, Integer state) {
+    this.fromId = fromId;
+    this.toId = toId;
     this.title = title;
     this.content = content;
     this.state = state;
   }
 
 
-  public String getUserId() {
-    return this.userId;
+  public String getFromId() {
+    return this.fromId;
   }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
+  public void setFromId(String fromId) {
+    this.fromId = fromId;
+  }
+
+  public String getToId() {
+    return this.toId;
+  }
+
+  public void setToId(String toId) {
+    this.toId = toId;
   }
 
   public Long getId() {

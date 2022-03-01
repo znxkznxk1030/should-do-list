@@ -27,8 +27,8 @@ public class ShouldDoController {
   ShouldDoMapper mapper;
 
   @GetMapping(value = "/should-do/{userId}", produces = "application/json")
-  ApiResult<List<ShouldDo>> getShouldDoList(@PathVariable String userId) {
-    List<ShouldDoEntity> entityList = shouldDoRepository.findAllByUserId(userId);
+  ApiResult<List<ShouldDo>> getGivenShouldDoList(@PathVariable String userId) {
+    List<ShouldDoEntity> entityList = shouldDoRepository.findAllByToId(userId);
     List<ShouldDo> list = mapper.entityListToApiList(entityList);
 
     return ApiUtils.success(list);

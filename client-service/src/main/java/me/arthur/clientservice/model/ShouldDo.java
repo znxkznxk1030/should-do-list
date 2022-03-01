@@ -1,33 +1,43 @@
 package me.arthur.clientservice.model;
 
 public class ShouldDo {
-  private String userId;
+  private String fromId;
+  private String toId;
   private String title;
   private String content;
   private String createdDate;
   private String modifiedDate;
   private Integer state;
 
-
   public ShouldDo() {
   }
 
-
-  public ShouldDo(String userId, String title, String content, String createdDate, String modifiedDate) {
-    this.userId = userId;
+  public ShouldDo(String fromId, String toId, String title, String content, String createdDate, String modifiedDate) {
+    this.fromId = fromId;
+    this.toId = toId;
     this.title = title;
     this.content = content;
     this.createdDate = createdDate;
     this.modifiedDate = modifiedDate;
   }
 
-  public String getUserId() {
-    return this.userId;
+
+  public String getFromId() {
+    return this.fromId;
   }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
+  public void setFromId(String fromId) {
+    this.fromId = fromId;
   }
+
+  public String getToId() {
+    return this.toId;
+  }
+
+  public void setToId(String toId) {
+    this.toId = toId;
+  }
+
 
   public String getTitle() {
     return this.title;
@@ -68,6 +78,5 @@ public class ShouldDo {
   public void setState(Integer state) {
     this.state = state;
   }
-
 
 }

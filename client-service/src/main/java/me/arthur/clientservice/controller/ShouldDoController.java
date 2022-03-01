@@ -18,8 +18,7 @@ import me.arthur.clientservice.service.KakaoApiService;
 import me.arthur.clientservice.service.ShouldDoApiService;
 
 @RestController
-@RequestMapping("/api/v1/should-do")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping("/api/v1")
 public class ShouldDoController {
   @Autowired
   KakaoApiService kakaoApiService;
@@ -27,7 +26,7 @@ public class ShouldDoController {
   @Autowired
   ShouldDoApiService souldDoApiService;
 
-  @GetMapping(value= "/", produces = "application/json")
+  @GetMapping(value= "/should-do", produces = "application/json")
   public ApiResult<List<ShouldDo>> getMyShouldDoList(
       @RegisteredOAuth2AuthorizedClient("kakao") OAuth2AuthorizedClient authorizedClient) {
 

@@ -9,5 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 public interface ShouldDoRepository extends CrudRepository<ShouldDoEntity, String> {
   List<ShouldDoEntity> findAll();
   @Transactional(readOnly = true)
-  List<ShouldDoEntity> findAllByUserId(String userId);
+  List<ShouldDoEntity> findAllByToId(String userId);
+  List<ShouldDoEntity> findAllByFromId(String userId);
 }
