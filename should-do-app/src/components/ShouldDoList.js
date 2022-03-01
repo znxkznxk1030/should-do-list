@@ -3,7 +3,12 @@ import kakaoLoginImg from "../resources/kakao_login_medium_narrow.png";
 import "./ShouldDoList.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowsH, faCheck, faSquare } from "@fortawesome/free-solid-svg-icons";
+import {
+  faArrowsH,
+  faCheck,
+  faChevronDown,
+  faSquare,
+} from "@fortawesome/free-solid-svg-icons";
 
 const ShouldDoList = () => {
   const [shouldDoList, setShouldDoList] = useState(null);
@@ -56,13 +61,18 @@ const ShouldDoList = () => {
 
       <div className="should-do-list">
         {shouldDoList.map((item, index) => (
-          <div className="item__data" key={index}>
-            {/* <div>{item.title}</div> */}
-            <div className="item__names">{item.content}</div>
-            <div className="item__status">
-              <ShouldDoItemStatus state={item.state}/>
+          <div key={index}>
+            <div className="item__data" >
+              <div className="item__status">
+                <ShouldDoItemStatus state={item.state} />
+              </div>
+              <div className="item__names">{item.title}</div>
+              <div className="item__btn_detail">
+                {/* <FontAwesomeIcon icon={faChevronDown} /> */}
+              </div>
+              <div className="item__bar"></div>
             </div>
-            <div className="item__bar"></div>
+            {/* <div className="item__detail">{item.content}</div> */}
           </div>
         ))}
       </div>

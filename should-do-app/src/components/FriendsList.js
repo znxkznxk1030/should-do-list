@@ -18,7 +18,6 @@ const FriendsList = () => {
     fetch("/api/v1/user/friends", {
       headers: {
         "Content-Type": "application/json",
-        // 'Content-Type': 'application/x-www-form-urlencoded',
       },
     })
       .then((response) => {
@@ -59,8 +58,8 @@ const FriendsList = () => {
         <h1>'s Kakao Friends</h1>
       </div>
       {friendsList.map((item, index) => (
-        <Link to="/">
-          <div className="item__data" key={index}>
+        <Link to="/form" key={index}>
+          <div className="item__data">
             {/* <div>{item.title}</div> */}
             <div className="item__thumbnail">
               <img src={item.profile_thumbnail_image} alt="profile_image" />

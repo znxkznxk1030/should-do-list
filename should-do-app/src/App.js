@@ -4,6 +4,7 @@ import ShouldDoList from "./components/ShouldDoList";
 import { Route, Routes, Link } from "react-router-dom";
 import FriendsList from "./components/FriendsList";
 import Navigator from "./components/Navigator";
+import ShouldDoForm from "./components/ShouldDoForm";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ShouldDoList />} />
           <Route path="/friends" element={<FriendsList />} />
+          <Route path="/form" element={<ShouldDoForm />} />
         </Routes>
       </div>
     </div>

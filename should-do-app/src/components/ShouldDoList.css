@@ -48,7 +48,17 @@
 }
 
 .item__wait {
-  color: #ff0000;
+  /* color: #ff0000; */
+}
+
+.item__detail {
+  /* background-color: white; */
+  /* color: #ff0000; */
+}
+
+.item__btn_detail {
+  /* color: #ff0000; */
+  color: #0e2431;
 }
 
 .item__percentage {
