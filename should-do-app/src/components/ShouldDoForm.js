@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import "./ShouldDoForm.css"
+
 import kakaoLoginImg from "../resources/kakao_login_medium_narrow.png";
 
 const ShouldDoForm = (props) => {
@@ -47,20 +49,22 @@ const ShouldDoForm = (props) => {
         <img src={profile.thumbnailURL} alt="profile_image" />
         <h1>&nbsp;Should Do...&nbsp;</h1>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form className="should-do_form" onSubmit={handleSubmit}>
         <input
+          className="title_input"
           type="text"
           placeholder="A Thing Should Do"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <input
+        {/* <input
           type="text"
           placeholder="More Detail"
           value={content}
           onChange={(e) => setContent(e.target.value)}
-        />
-        <input type="submit" value="Submit" />
+        /> */}
+        <input type="submit" value="+" className="submit_input">
+        </input>
       </form>
     </div>
   );

@@ -6,3 +6,35 @@
   font-size: 1rem;
   height: 85vh;
 }
+
+.should-do_form{
+  height: 45vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title_input {
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 25px;
+  width: 10vw;
+  height: 40px;
+  transition:all .2s ease-in-out;
+}
+
+.title_input:focus {
+  width: 60vw;
+  transition:all .2s ease-in-out;
+}
+
+.submit_input {
+  display: block;
+  border: none;
+  background-color: #50cb93;
+  width: 65px;
+  height: 65px;
+  border-radius: 50px;
+  margin-left: -25px;
+  color: azure;
+  font-size: 55px;
+}
