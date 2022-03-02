@@ -2,6 +2,7 @@ package me.arthur.clientservice.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +14,9 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.cbor.MappingJackson2CborHttpMessageConverter;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import me.arthur.clientservice.model.ShouldDo;
@@ -52,5 +55,23 @@ public class ShouldDoApiService {
 
 
     return ret;
+  }
+
+  public ShouldDo createShouldDoList(int userId) {
+
+    return null;
+  }
+
+  public ShouldDo updateShouldDo(ShouldDo body) {
+    String url = "http://localhost:8081" + "/should-do/";
+    restTemplate.getMessageConverters().add(new MappingJackson2CborHttpMessageConverter());
+
+    HttpHeaders headers = new HttpHeaders();
+
+    HttpEntity<ShouldDo> requestEntity = new HttpEntity<ShouldDo>(body, headers);
+    HttpEntity<ShouldDo> response = restTemplate.exchange(url, HttpMethod.PUT, requestEntity, 
+        ShouldDo.class);
+
+    return response.getBody();
   }
 }

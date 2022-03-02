@@ -45,8 +45,7 @@ const ShouldDoForm = (props) => {
     <div className="should-do-wrapper">
       <div className="should-do-header">
         <img src={profile.thumbnailURL} alt="profile_image" />
-        <h1>&nbsp;&nbsp;have to say to&nbsp;&nbsp;</h1>
-        <img src={profile.thumbnailURL} alt="profile_image" />
+        <h1>&nbsp;Should Do...&nbsp;</h1>
       </div>
       <form onSubmit={handleSubmit}>
         <input

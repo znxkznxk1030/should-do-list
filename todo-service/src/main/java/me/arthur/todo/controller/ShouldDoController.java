@@ -1,11 +1,13 @@
 package me.arthur.todo.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,5 +42,16 @@ public class ShouldDoController {
     ShouldDoEntity newEntity = shouldDoRepository.save(shouldDoEntity);
 
     return ApiUtils.success(mapper.entityToApi(newEntity));
+  }
+
+  @PutMapping(value = "/should-do", consumes = "application/json", produces = "application/json")
+  ApiResult<ShouldDo> updateShouldDo(@RequestBody ShouldDo shouldDo) {
+    Long id = shouldDo.getId();
+    Optional<ShouldDoEntity> shouldDoEntity = shouldDoRepository.findById(id);
+    shouldDoEntity.ifPresent(_shouldDo -> {
+      _shouldDo.setState(shouldDo.getState());
+      shouldDoRepository.save(_shouldDo);
+    });
+    return null;
   }
 }

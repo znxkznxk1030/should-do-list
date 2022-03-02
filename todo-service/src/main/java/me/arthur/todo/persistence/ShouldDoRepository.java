@@ -1,7 +1,7 @@
 package me.arthur.todo.persistence;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,4 +11,5 @@ public interface ShouldDoRepository extends CrudRepository<ShouldDoEntity, Strin
   @Transactional(readOnly = true)
   List<ShouldDoEntity> findAllByToId(String userId);
   List<ShouldDoEntity> findAllByFromId(String userId);
+  Optional<ShouldDoEntity> findById(Long id);
 }

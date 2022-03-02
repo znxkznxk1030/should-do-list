@@ -15,7 +15,7 @@ public interface ShouldDoMapper {
 
   // Java 8 and later
   @Mappings ({
-    @Mapping(target = "id", ignore = true),
+    // @Mapping(target = "id", ignore = true),
     @Mapping(target = "version", ignore = true)
   })
   ShouldDoEntity apiToEntity(ShouldDo api);
