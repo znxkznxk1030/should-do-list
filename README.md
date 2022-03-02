@@ -1,4 +1,28 @@
-# spring-kata-1
+# Should Do List
+
+## Demo
+
+![demo](./figures/should-do-list-001.gif)
+
+## 카카오 로그인
+
+![kakao login demo](./figures/kakao-login.gif)
+
+## 나의 Should-Do 목록 확인하기
+
+![내 목록](./figures/should-do-list-002.png)
+
+## 내가 준 Should-Do 목록 진행사항 확인하기
+
+![내가 준 목록](./figures/should-do-list-003.png)
+
+## 친구리스트 ( 카카오 )
+
+![친구 리스트](./figures/should-do-list-004.png)
+
+## Should Do 만들기
+
+![목록 만들기](./figures/should-do-list-005.png)
 
 ## Run
 
@@ -56,7 +80,7 @@ spring:
     oauth2:
       client:
         registration:
-          google: 
+          google:
             client-id: << GOOGLE CLIENT ID >>
             client-secret: << GOOGLE CLIENT SECERT >>
             scope: profile,email
@@ -147,8 +171,8 @@ docker rm $(docker ps -a -q)
 ### docker-compose | Mysql 한글 깨짐현상 해결
 
 ```yml
-command: 
-  - --character-set-server=utf8 
+command:
+  - --character-set-server=utf8
   - --collation-server=utf8_general_ci
 ```
 

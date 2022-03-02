@@ -33,7 +33,7 @@ public class ShouldDoApiService {
     this.restTemplate = restTemplate;
   }
 
-  public List<ShouldDo> getMyShouldDoList(int userId) {
+  public List<ShouldDo> getShouldDoList(int userId) {
     List<ShouldDo> ret = new ArrayList<>();
     String url = "http://localhost:8081" + "/should-do/" + userId;
 
@@ -52,14 +52,43 @@ public class ShouldDoApiService {
       // TODO Auto-generated catch block
       e.printStackTrace();
     }
-
-
     return ret;
   }
 
-  public ShouldDo createShouldDoList(int userId) {
+  public List<ShouldDo> getGivenShouldDoList(int userId) {
+    List<ShouldDo> ret = new ArrayList<>();
+    String url = "http://localhost:8081" + "/should-do/from/" + userId;
 
-    return null;
+    HttpHeaders headers = new HttpHeaders();
+    HttpEntity<?> request = new HttpEntity<>(headers);
+
+    // ApiResult<List<ShouldDo>> response = restTemplate.getForObject(todoServiceUrl
+    // + "", );
+    ResponseEntity<Map> response = restTemplate.exchange(url, HttpMethod.GET, request, Map.class);
+    ObjectMapper mapper = new ObjectMapper();
+    try {
+      String json = mapper.writeValueAsString(response.getBody().get("response"));
+
+      System.out.println(json);
+      ret = Arrays.asList(mapper.readValue(json, ShouldDo[].class));
+    } catch (JsonProcessingException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    return ret;
+  }
+
+  public ShouldDo createShouldDo(ShouldDo body) {
+    String url = "http://localhost:8081" + "/should-do/";
+    restTemplate.getMessageConverters().add(new MappingJackson2CborHttpMessageConverter());
+
+    HttpHeaders headers = new HttpHeaders();
+
+    HttpEntity<ShouldDo> requestEntity = new HttpEntity<ShouldDo>(body, headers);
+    HttpEntity<ShouldDo> response = restTemplate.exchange(url, HttpMethod.POST, requestEntity,
+        ShouldDo.class);
+
+    return response.getBody();
   }
 
   public ShouldDo updateShouldDo(ShouldDo body) {
