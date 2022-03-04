@@ -1,5 +1,9 @@
 # Should Do List
 
+## 프로젝트 구조
+
+![structure](./figures/oauth-structure-2.png)
+
 ## Demo
 
 ![demo](./figures/should-do-list-001.gif)
