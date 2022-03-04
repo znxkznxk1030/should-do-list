@@ -6,7 +6,7 @@
 
 ### 서버 구조
 
-![server](./figures/server.png)
+![server](./figures/server-1.png)
 
 ## Demo
 
